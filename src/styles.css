@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+
+  
+
+  .colored-background {
+    color: #fff;
+    background-color: #050505
+  }
+  
+  .hugs-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0
+  }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px
+  }
+  
+
+  .header {
+    padding: 70px;
+    font-size: 12px
+  }
