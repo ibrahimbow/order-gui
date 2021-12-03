@@ -1,0 +1,80 @@
+<link src='items.component.css' rel='stylesheet' />
+<!-- font awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css"
+    integrity="sha512-+EY0fToRDbzM7LUvphiWAG9HizDyvHzgI409LoekdEyEzr79hI1Qy1hkou2nM4ylCSuyaP8m+Dm0ji/3yJROSA=="
+    crossorigin="anonymous" />
+<!-- bootstrap CDN-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-100 col-lg-90">
+            <div class="container-fluid">
+                <div class="row text-center ">
+                    <div class="col-md-100 col-sm-60">
+                        <div class="navbar">
+                            <div class="dropdown">
+                                <a routerLink="/dashboard">Items  </a>
+                            <a routerLink="/customerOverview">Customer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>Weclome in item view details</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-lg-12">
+
+            <div class="container">
+                <div class="row text-left ">
+                    <!-- first row -->
+
+                    <div class="col-md-8 col-sm-8 my-3 my-md-10">
+
+                        <!-- <form  > -->
+                        <!-- <section *ngIf="selectedItem" class="tiny-dialog fader" id="itemProfile"> -->
+                        <div class="container" *ngIf="item">
+                            <h1>Item Details</h1>
+                            <span>{{item.id}}</span>
+                        
+                            <hr>
+                            <label for="name">Name</label>
+                            <input class="form-control"  placeholder="Name" type="text" [(ngModel)]="item.name" required>
+
+
+                            <label for="descripe">Description</label>
+                            <!-- (ngModelChange)="showComment()" -->
+                            <textarea id="descripe" class="form-control" 
+                                placeholder="Description" rows="7" cols="20" maxlength="255"
+                                [(ngModel)]="item.description"> </textarea>
+                            <div id="showComment" class="text-right "><span id="numleft"></span>| 255</div>
+
+
+
+                            <label for="Price">Price</label>
+                            <input class="form-control"  placeholder="Price" type="text"
+                                [(ngModel)]="item.price" required>
+
+                            <label for="Amount">Amount in Stock </label>
+                            <input class="form-control"  placeholder="Amount in Stock"
+                                type="text" [(ngModel)]="item.amountOfStock" required>
+                        <hr/>
+                            <button class="registerbtn" type="submit">update</button>
+                            <input class="registerbtn" type="reset" value="Cancel">
+                        </div>
+                        <!-- </section> -->
+                        <!-- </form> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
