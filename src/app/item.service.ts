@@ -65,11 +65,9 @@ export class ItemService {
 
 
   /** PUT: update the hero on the server */
-updateItem(item: Item): Observable<any> {
-  return this.http.put(this.itemsUrl, item, this.httpOptions).pipe(
-    tap(_ => console.log(`updated hero id=${item.id}`)),
-    catchError(this.handleError<any>('updateHero'))
-  );
+  updateItem(item: Item, id: string): Observable<any> {
+  return this.http.put(`${this.itemsUrl}/${id}`, item, this.httpOptions);
+
 }
 
 

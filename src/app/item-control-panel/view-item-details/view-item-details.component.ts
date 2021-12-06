@@ -13,7 +13,18 @@ import { Location } from '@angular/common';
 export class ViewItemDetailsComponent implements OnInit {
 
 
-  private _item: Item | undefined;
+  private _item: Item | any;
+
+  itemId : string | any ;
+
+
+  updateItemForm = this.formBuilder.group({
+    name: '',
+    description: '',
+    price: '',
+    amountOfStock: '',
+  });
+
 
 
 
@@ -25,8 +36,8 @@ export class ViewItemDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
-    this.itemService.findItemById(id)
+    this.itemId = this.route.snapshot.params['id'];
+    this.itemService.findItemById(this.itemId)
       .subscribe(item => this._item = item);
   }
 
@@ -38,10 +49,8 @@ export class ViewItemDetailsComponent implements OnInit {
 
 
   update(): void {
-    if (this.item) {
-      this.itemService.updateItem(this.item)
+      this.itemService.updateItem(this.updateItemForm.value , this.itemId)
         .subscribe(() => this.goBack());
-    }
   }
   goBack(): void {
     this.location.back();
